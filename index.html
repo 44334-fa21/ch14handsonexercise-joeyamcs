@@ -1,13 +1,77 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-	<head> 
-		<title>LASTNAME Chapter14HandsOnExercise</title> 
-		<meta charset="utf-8"> 
-		<style>
-		
-		</style>
-	</head> 
-<body> 
+<!DOCTYPE html>
+<html lang="en">
 
-</body> 
-</html> 
+<head>
+	<title>Shearer Chapter14 HandsOnExercise</title>
+  <meta charset="utf-8">
+  <!-- jQuery 1.8 or later, 33 KB -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <!-- Fotorama from CDNJS, 19 KB -->
+  <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+  <style>
+    input {
+      display: block;
+      margin-bottom: 1em;
+    }
+
+    label {
+      float: left;
+      width: 5em;
+      padding-right: 1em;
+      text-align: right;
+    }
+
+    #submit {
+      margin-left: 7em;
+    }
+  </style>
+
+</head>
+
+<body>
+  <h1>JavaScript Form Handling</h1>
+	<form method="post" action="http://webdevbasics.net/scripts/demo.php" onsubmit="return validateForm();">
+		<label for="userName">Name:</label>
+		<input type="text" name="userName" id="userName">
+		<br>
+		<label for="userAge">Age:</label>
+		<input type="text" name="userAge" id="userAge">
+		<br>
+		<label for="userCity">City:</label>
+		<input type="text" name="userCity" id="userCity">
+		<br>
+		<input type="submit" value="Submit" id="submit">
+	</form>
+
+  <div class="fotorama" data-autoplay="true">
+    <img src="photo1.jpg" data-caption="Kansas City Skyline" alt="Kansas City Skylin">
+    <img src="photo2.jpg" data-caption="Water Drop" alt= "waterdrop">
+    <img src="photo3.jpg" data-caption="Fat Monkey" alt= "Fat Monkey">
+    <img src="photo4.jpg" data-caption="Apple sculpture" alt= "Apple Sculpture">
+    <img src="photo5.jpg" data-caption="Business of Ferrets" alt="ferrets">
+    <img src="photo6.jpg" data-caption="Water splash" alt= "watersplash">
+  </div>
+<script>
+function validateForm(){
+  if(document.forms[0].userName.value ==""){
+    alert("Name field cannot be empty");
+    return false;
+  }
+  if (document.forms[0].userAge.value < 18){
+    alert("Age is less than 18. You do not have access!")
+    return false;
+  }
+	if(document.forms[0].userCity.value ==""){
+		alert("City field cannot be empty");
+		return false;
+	}
+  alert("name, city, and age are valid");
+  return true;
+}
+</script>
+
+</body>
+
+</html>
